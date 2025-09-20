@@ -5,12 +5,12 @@ import {
   NavItems,
   MobileNav,
   NavbarLogo,
-  NavbarButton,
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
+import { NavbarButton } from "../buttons/NavbarButton";
 
 export function NavBar({ children }: { children: React.ReactNode }) {
   const navItems = [
@@ -19,7 +19,7 @@ export function NavBar({ children }: { children: React.ReactNode }) {
       link: "#about",
     },
     {
-      name: "Portfolio",
+      name: "Our Work",
       link: "#portfolio",
     },
     {

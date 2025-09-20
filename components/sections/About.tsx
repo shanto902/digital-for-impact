@@ -3,6 +3,7 @@ import React from "react";
 import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 import { motion } from "motion/react";
 import { AboutImages } from "../carousel/AboutImages";
+import { Button } from "../buttons/Button";
 
 const About = () => {
   return (
@@ -53,11 +54,12 @@ const About = () => {
               </p>
               <p>
                 Except for us, that wasn't the punchline—it was the beginning of
-                our journey. We weren't just going out for a night out; we were
-                looking for a better way to do digital. We had all seen the same
-                thing: agencies that talked a big game but delivered
-                cookie-cutter campaigns, left clients in the dark, and treated
-                their work like a checklist instead of a craft.
+                our journey. What we thought was going to be just a night out
+                turned into a brainstorming session on a better way to do
+                digital. We had all seen the same thing: agencies that talked a
+                big game but delivered cookie-cutter campaigns, left clients in
+                the dark, and treated their work like a checklist instead of a
+                craft.
               </p>
               <p>
                 So, fueled by mutual respect, shared frustration, and probably a
@@ -67,7 +69,7 @@ const About = () => {
                 agile, more personal, and a lot more effective. That's how
                 Digital for Impact was born.
               </p>
-              <strong>We're Not a Digital Agency.</strong>
+              <strong>We're Not a Digital Agency. </strong>
               <p>
                 We're a boutique 360° creative and digital service provider that
                 specializes in content, strategy, and web development. But what
@@ -88,7 +90,6 @@ const About = () => {
                 win.
               </p>
               <p>
-                {" "}
                 We’ve seen what works and what’s just a waste of time and money,
                 and we’re here to help you skip the latter. We build impactful
                 strategies, craft compelling visuals, and develop websites that
@@ -99,7 +100,7 @@ const About = () => {
               </strong>
               <p>
                 {" "}
-                <em>A Brain Trust, Not a Bureaucracy:</em> We’re a lean, mean,
+                <em>A Brain Trust, Not a Bureaucracy: </em> We’re a lean, mean,
                 results-driven machine. You don't get handed off to a junior
                 team. You work directly with the experts who have the skills and
                 experience to get the job done right.
@@ -112,7 +113,7 @@ const About = () => {
                 deliver work that drives real growth and makes an impact.
               </p>
               <p>
-                <em>No-Nonsense Pricing:</em> We believe top-tier creative and
+                <em>No-Nonsense Pricing: </em> We believe top-tier creative and
                 digital services shouldn't break the bank. We offer
                 industry-standard quality at rates that are reasonable and
                 competitive, so you can focus on your business, not your budget.
@@ -123,7 +124,13 @@ const About = () => {
                 deserves a partner. If you're looking for a team that's as
                 passionate about your success as you are, let's chat.
               </p>
-              <p>Schedule a call with us today!</p>
+              <Button
+                className="mx-auto hover:bg-black hover:text-white text-lg mt-4"
+                href="#contact"
+                variant="primary"
+              >
+                Schedule a call with us today!
+              </Button>
             </article>
             <div className="bg-gradient-to-b from-transparent via-white to-white h-[15vh] sticky w-full bottom-0 z-30"></div>
           </div>
