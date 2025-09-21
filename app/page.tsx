@@ -8,7 +8,7 @@ const page = () => {
     <>
       <Hero />
       <About />
-      <div className="h-screen"></div>
+      <Services />
     </>
   );
 };
