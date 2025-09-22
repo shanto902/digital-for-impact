@@ -6,7 +6,9 @@ import { WobbleCard } from "../ui/wobble-card";
 export function Services() {
   return (
     <section className="mb-10">
-      <h2 className="text-4xl font-bold text-center my-8">Our Services</h2>
+      <h2 className="text-4xl font-bold text-center mt-8 mb-14">
+        Our Services
+      </h2>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full">
         {/* Digital Marketing & Content Creation */}
         <WobbleCard containerClassName="col-span-1 lg:col-span-2 h-full bg-gradient-to-r from-green-800 to-green-600 min-h-[500px] lg:min-h-[300px]">
