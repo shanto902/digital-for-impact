@@ -1,4 +1,5 @@
 import About from "@/components/sections/About";
+import Clients from "@/components/sections/Clients";
 import Hero from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
 import { Works } from "@/components/sections/Works";
@@ -11,6 +12,7 @@ const page = () => {
       <About />
       <Services />
       <Works />
+      <Clients />
     </>
   );
 };

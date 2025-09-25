@@ -1,7 +1,10 @@
 "use client";
 
+import ActivationsEvents from "../tabs/ActivationsEvents";
+import BrandIdentity from "../tabs/BrandIdentity";
 import DigitalAnimated from "../tabs/DigitalAnimated";
 import DigitalStatic from "../tabs/DigitalStatic";
+import WebDevelopment from "../tabs/WebDevelopment";
 import { Tabs } from "../ui/tabs";
 
 export function Works() {
@@ -28,9 +31,8 @@ export function Works() {
       title: "Building Brand Identity",
       value: "bbi",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-          <p>Building Brand Identity</p>
-          <DummyContent />
+        <div className="w-full overflow-y-scroll overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-purple-100 to-violet-200">
+          <BrandIdentity />
         </div>
       ),
     },
@@ -38,9 +40,8 @@ export function Works() {
       title: "Web Development",
       value: "wtd",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-          <p>Web & Tech Development</p>
-          <DummyContent />
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-teal-100 to-teal-300">
+          <WebDevelopment />
         </div>
       ),
     },
@@ -48,9 +49,8 @@ export function Works() {
       title: "Activations & Events",
       value: "ae",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-          <p>Activations & Events</p>
-          <DummyContent />
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-yellow-100 to-orange-200">
+          <ActivationsEvents />
         </div>
       ),
     },

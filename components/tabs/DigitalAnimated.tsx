@@ -239,7 +239,7 @@ const DigitalAnimated: React.FC<{ videos?: VideoItem[] }> = ({
       <section className="w-full ">
         <div
           ref={containerRef}
-          className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
         >
           {videos.map((v) => {
             const poster = getPoster(v);
