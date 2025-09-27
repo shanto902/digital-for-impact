@@ -239,7 +239,7 @@ const DigitalAnimated: React.FC<{ videos?: VideoItem[] }> = ({
       <section className="w-full ">
         <div
           ref={containerRef}
-          className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
+          className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-2 sm:grid-cols-4 lg:grid-cols-5"
         >
           {videos.map((v) => {
             const poster = getPoster(v);
@@ -247,10 +247,10 @@ const DigitalAnimated: React.FC<{ videos?: VideoItem[] }> = ({
               <button
                 key={v.id}
                 onClick={() => openModal(v)}
-                className="video-card group relative overflow-hidden rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 shadow hover:shadow-lg transition-transform duration-300 will-change-transform focus:outline-none focus:ring-2 focus:ring-black/30"
+                className=" group relative overflow-hidden rounded-2xl hover:shadow-lg transition-all duration-300 will-change-transform focus:outline-none focus:ring-2 focus:ring-black/30"
               >
                 {/* Poster / video preview */}
-                <div className="relative aspect-video w-full overflow-hidden">
+                <div className="relative aspect-square w-full overflow-hidden">
                   {
                     <video
                       src={v.src}
