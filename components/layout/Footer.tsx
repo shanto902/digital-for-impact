@@ -14,30 +14,43 @@ type Logo = {
 type Props = {
   brandName?: string;
   tagline?: string;
-  linkedinUrl?: string; // e.g. "https://www.linkedin.com/company/digital-for-impact/"
-  affiliated?: Logo[]; // three logos recommended
+  linkedinUrl?: string;
+  affiliated?: Logo[];
 };
 
 export default function Footer({
   brandName = "Digital For Impact",
   tagline = "Building meaningful products that move the needle.",
-  linkedinUrl = "https://www.linkedin.com/search/results/companies/?keywords=Digital%20For%20Impact",
+  linkedinUrl = "https://www.linkedin.com/company/digitalforimpact/",
   affiliated = [
-    { src: "/logos/1.png", alt: "Alpha Labs", href: "#" },
-    { src: "/logos/2.png", alt: "Beta Ventures", href: "#" },
-    { src: "/logos/3.png", alt: "Gamma Studio", href: "#" },
+    {
+      src: "/logos/1.png",
+      alt: "Alpha Labs",
+      href: "https://madmen.online/",
+    },
+    {
+      src: "/logos/2.png",
+      alt: "Hypescout Co",
+      href: "https://www.hypescout.co/",
+    },
+    {
+      src: "/logos/3.png",
+      alt: "Madman Digital",
+      href: "https://madmen.online/",
+    },
   ],
 }: Props) {
   return (
     <footer className="relative mt-20 bg-white dark:bg-neutral-950 border-t border-neutral-200/70 dark:border-white/10 transition-colors">
-      {/* soft ambient glow */}
+      {/* ambient glow */}
       <div
         aria-hidden
         className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-48 w-[36rem] rounded-full blur-3xl
                    bg-gradient-to-r from-[#c0ff72]/20 via-[#c0ff72]/20 to-[#c0ff72]/20 dark:from-[#c0ff72]/10 dark:via-[#c0ff72]/10 dark:to-[#c0ff72]/10"
       />
+
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-14">
-        {/* center brand block */}
+        {/* Brand block */}
         <div className="mx-auto max-w-3xl text-center">
           <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white">
             {brandName}
@@ -46,7 +59,24 @@ export default function Footer({
             {tagline}
           </p>
 
-          {/* Primary CTA: Connect on LinkedIn */}
+          {/* Contact links */}
+          <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-4 text-sm md:text-base text-neutral-700 dark:text-neutral-300">
+            <a
+              href="tel:+66806320811"
+              className="hover:text-[#c0ff72] transition-colors"
+            >
+              📞 +66806320811
+            </a>
+            <span className="hidden sm:block text-neutral-400">|</span>
+            <a
+              href="mailto:connect@digitalforimpact.net"
+              className="hover:text-[#c0ff72] transition-colors"
+            >
+              ✉️ connect@digitalforimpact.net
+            </a>
+          </div>
+
+          {/* LinkedIn */}
           <div className="mt-7">
             <a
               href={linkedinUrl}
@@ -64,15 +94,12 @@ export default function Footer({
           </div>
         </div>
 
-        {/* Affiliated companies */}
+        {/* Affiliated logos */}
         {affiliated?.length > 0 && (
           <div className="mt-12">
-            <div className="text-center">
-              <p className="text-xs tracking-widest uppercase text-neutral-500 dark:text-neutral-400">
-                Affiliated companies
-              </p>
-            </div>
-
+            <p className="text-xs tracking-widest uppercase text-center text-neutral-500 dark:text-neutral-400">
+              Affiliated companies
+            </p>
             <div className="mt-6 grid grid-cols-3 gap-6 items-center max-w-3xl mx-auto">
               {affiliated.slice(0, 3).map((logo, i) => {
                 const img = (
@@ -89,11 +116,7 @@ export default function Footer({
                 );
 
                 return (
-                  <div
-                    key={logo.src + i}
-                    className="flex items-center justify-center"
-                    title={logo.alt}
-                  >
+                  <div key={logo.src + i} className="flex justify-center">
                     {logo.href ? (
                       <a
                         href={logo.href}
@@ -114,7 +137,7 @@ export default function Footer({
           </div>
         )}
 
-        {/* subtle divider */}
+        {/* Divider */}
         <div className="mt-10 border-t border-neutral-200/70 dark:border-white/10 pt-6 text-center">
           <p className="text-xs md:text-sm text-neutral-500 dark:text-neutral-400">
             © {new Date().getFullYear()} {brandName}.{" "}

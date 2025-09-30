@@ -36,12 +36,20 @@ export default function Collaborate() {
       return;
     }
 
-    // TODO: connect to your API route (e.g., /api/contact) or Resend
-    // Example:
-    // const res = await fetch("/api/contact", { method: "POST", body: data });
-    // if (!res.ok) throw new Error("Network error");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        body: data,
+      });
+      const json = await res.json();
+      if (!res.ok || !json.ok) throw new Error(json.error || "Failed to send");
+      setStatus("success");
+      form.reset();
+    } catch (err: any) {
+      setStatus("error");
+      setError(err.message || "Something went wrong. Please try again.");
+    }
 
-    // Simulate async
     await new Promise((r) => setTimeout(r, 900));
     setStatus("success");
     form.reset();
@@ -304,15 +312,22 @@ export default function Collaborate() {
                   </button>
 
                   <a
-                    href="mailto:hello@digitalforimpact.io"
+                    href="mailto:connect@digitalforimpact.net"
                     className="text-sm text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white"
                   >
                     Prefer email?{" "}
                     <span className="underline decoration-[#c0ff72] underline-offset-4">
-                      hello@digitalforimpact.io
+                      connect@digitalforimpact.net
                     </span>
                   </a>
                 </div>
+                <input
+                  type="text"
+                  name="website"
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
               </form>
             </div>
 

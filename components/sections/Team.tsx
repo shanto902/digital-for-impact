@@ -42,7 +42,7 @@ export default function Team() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2  lg:grid-cols-4 md:gap-6 gap-4">
           {teamMembers.map((member) => (
             <div
               key={member.name}
