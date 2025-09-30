@@ -41,7 +41,6 @@ const About = () => {
               />
             </motion.div>
             {/* optional subtle divider under the sticky header */}
-            <div className="h-px w-full bg-gradient-to-r from-transparent via-neutral-200 dark:via-neutral-800 to-transparent" />
           </div>
 
           {/* Long content: no inner scroll — uses main page scroll */}
@@ -132,7 +131,7 @@ const About = () => {
                 Schedule a call with us today!
               </Button>
             </article>
-            <div className="bg-gradient-to-b from-transparent via-white to-white h-[15vh] sticky w-full bottom-0 z-30"></div>
+            <div className="hidden md:block bg-gradient-to-b from-transparent via-white to-white h-[15vh] sticky w-full bottom-0 z-30"></div>
           </div>
         </div>
       </div>

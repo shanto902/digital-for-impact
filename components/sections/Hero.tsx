@@ -34,7 +34,7 @@ const Hero = () => {
           delay={150}
           animateBy="words"
           direction="top"
-          className="text-7xl font-extrabold text-[#BFFE72] drop-shadow-[0_0_20px_#488202] p-5"
+          className="md:text-7xl  text-4xl  font-extrabold text-[#BFFE72] drop-shadow-[0_0_20px_#488202] p-5 md:flex md:justify-center"
         />
       </section>
     </main>

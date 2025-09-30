@@ -77,10 +77,10 @@ const imageLogos = [
 
 const Clients = () => {
   return (
-    <section className="mt-35 mb-20  mx-auto   px-4">
+    <section className="mt-35  mx-auto   px-4">
       <h2 className="text-4xl font-bold text-center my-8">Our Clients</h2>
       <div
-        style={{ height: "200px", position: "relative", overflow: "hidden" }}
+        style={{ height: "150px", position: "relative", overflow: "hidden" }}
       >
         <LogoLoop
           logos={imageLogos}

@@ -1,5 +1,5 @@
 import React from "react";
-import Masonry from "../grids/Masonry";
+import Grids from "../grids/grids";
 
 const items = [
   {
@@ -31,19 +31,7 @@ const items = [
   },
 ];
 const ActivationsEvents = () => {
-  return (
-    <Masonry
-      items={items}
-      ease="power3.out"
-      duration={0.6}
-      stagger={0.05}
-      animateFrom="bottom"
-      scaleOnHover={true}
-      hoverScale={0.95}
-      blurToFocus={true}
-      colorShiftOnHover={false}
-    />
-  );
+  return <Grids items={items} />;
 };
 
 export default ActivationsEvents;

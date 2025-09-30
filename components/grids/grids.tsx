@@ -1,6 +1,9 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+// Masonry.tsx
+"use client";
+import React, { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 
+/** Responsive columns via media queries */
 export function useMedia(
   queries: string[],
   values: number[],
@@ -52,21 +55,33 @@ const Masonry: React.FC<MasonryProps> = ({
       "(min-width:500px)",
     ],
     [5, 4, 3, 2],
-    1
+    2
   );
 
-  // Stagger entrance trigger
+  /** ---------- Stagger entrance trigger (FIXED) ---------- */
   const [entered, setEntered] = useState(false);
   useEffect(() => {
-    // small RAF so DOM paints before transitions fire
-    const id = requestAnimationFrame(() => setEntered(true));
-    return () => cancelAnimationFrame(id);
+    let raf1: number;
+    let raf2: number;
+
+    // reset whenever items change
+    setEntered(false);
+
+    // wait two frames so the grid fully lays out before transitions run
+    raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => setEntered(true));
+    });
+
+    return () => {
+      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
+    };
   }, [items]);
 
-  // Modal
+  /** ---------- Modal state ---------- */
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
-  const [modalShown, setModalShown] = useState(false); // for animating in/out
+  const [modalShown, setModalShown] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
@@ -77,7 +92,6 @@ const Masonry: React.FC<MasonryProps> = ({
   };
 
   const close = () => {
-    // animate out then unmount
     setModalShown(false);
     setTimeout(() => setActiveIndex(null), 180);
   };
@@ -121,9 +135,7 @@ const Masonry: React.FC<MasonryProps> = ({
           opacity: 0;
           transition: opacity 180ms ease;
         }
-        .modal-backdrop.shown {
-          opacity: 1;
-        }
+        .modal-backdrop.shown { opacity: 1; }
         .modal-card {
           opacity: 0;
           transform: translateY(8px) scale(0.98);
@@ -144,7 +156,7 @@ const Masonry: React.FC<MasonryProps> = ({
             className="group relative rounded-xl overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 stagger-item"
             style={{
               aspectRatio: "1 / 1",
-              // stagger delay per item
+              // stagger delay per item (only after entered is true)
               transitionDelay: entered ? `${idx * itemDelayMs}ms` : "0ms",
             }}
             aria-label="Open image"

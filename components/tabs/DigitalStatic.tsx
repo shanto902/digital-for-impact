@@ -1,5 +1,5 @@
 import React from "react";
-import Masonry from "../grids/Masonry";
+import Grids from "../grids/grids";
 
 const items = [
   {
@@ -52,7 +52,7 @@ const items = [
   },
 ];
 const DigitalStatic = () => {
-  return <Masonry items={items} />;
+  return <Grids items={items} />;
 };
 
 export default DigitalStatic;

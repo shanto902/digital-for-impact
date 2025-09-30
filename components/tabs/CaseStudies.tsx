@@ -11,6 +11,92 @@ type CaseItem = {
   content?: ReactNode; // JSX content shown in modal
 };
 
+const CaseStudies1 = () => (
+  <div className="space-y-6 p-8 md:p-14">
+    <h2 className="font-bold text-xl">
+      Campaign: Bruno Moretti Underwear Campaign
+    </h2>
+    <h3 className="font-bold text-lg">Challenges & opportunities:</h3>
+    <p>
+      There was no established underwear brand for men in Bangladesh. The market
+      is used to imported products and local products. It is still considered to
+      be a taboo but a taboo that is an opportunity for a new brand like Bruno
+      Moretti to break.
+    </p>
+    <ul className="list-disc space-y-2 pl-5 ">
+      <li>
+        The initial launch video of Bruno Moretti received mixed feedback for
+        its strong imagery
+      </li>
+    </ul>
+    <p>
+      There- it was the brand’s next move to stand out from the mixed reactions
+      and establish a taboo brand
+    </p>
+
+    <h3 className="font-bold text-lg">THE CAMPAIGN:</h3>
+    <p>
+      The campaign was born right around the time when our launch video was
+      getting mixed reaction. We’ve decided to partner up with Rafayet Rakib, a
+      popular commentary content creator and asked him to roast our video in
+      stead. And thus began the saga of Brand vs Influencer
+    </p>
+
+    <div className="grid gap-10 md:grid-cols-3">
+      <article className="space-y-4">
+        <div className="rounded-2xl overflow-hidden bg-neutral-100">
+          <img
+            src="/images/cs1.png"
+            alt="Influencer making fun of our brand video"
+            className="w-full h-auto block"
+            loading="lazy"
+          />
+        </div>
+        <p className="text-center text-sm leading-snug">
+          The campaign started with the influencer making fun of our brand video
+        </p>
+      </article>
+
+      <article className="space-y-4">
+        <div className="rounded-2xl overflow-hidden bg-neutral-100">
+          <img
+            src="/images/cs2.png"
+            alt="Community members creating memes about the brand"
+            className="w-full h-auto block"
+            loading="lazy"
+          />
+        </div>
+        <p className="text-center text-sm  leading-snug">
+          Then his Facebook community group members created memes out of the
+          brand
+        </p>
+      </article>
+
+      <article className="space-y-4">
+        <div className="rounded-2xl overflow-hidden bg-neutral-100">
+          <img
+            src="/images/cs3.png"
+            alt="Brand challenges influencers to design underwear"
+            className="w-full h-auto block"
+            loading="lazy"
+          />
+        </div>
+        <p className="text-center text-sm  leading-snug">
+          Then we as a brand challenged the influencers and their community to
+          create their best design of underwear
+        </p>
+      </article>
+    </div>
+    <h2 className="text-lg font-bold">CAMPAIGN OVERVIEW:</h2>
+    <p>
+      The campaign engaged influencers, the comment box, Facebook community and
+      initiated user generated contents. We’ve ended up receiving over 700
+      designs of men’s underwear from audience and overall increased attention
+      and awareness of a new brand. We’ve also won digital marketing awards for
+      the campaign
+    </p>
+  </div>
+);
 /** DUMMY CONTENT (unchanged) */
 const DummyContent = () => {
   return (
@@ -49,31 +135,11 @@ const data: CaseItem[] = [
   {
     title: "Thik Fast & Think Digital First",
     src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
+    content: <CaseStudies1 />,
   },
   {
     title: "Enhance your productivity.",
     src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
-  },
-  {
-    title: "Launching the new Apple Vision Pro.",
-    src: "https://images.unsplash.com/photo-1713869791518-a770879e60dc?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
-  },
-  {
-    title: "Maps for your iPhone 15 Pro Max.",
-    src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
-  },
-  {
-    title: "Photography just got better.",
-    src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
-  },
-  {
-    title: "Hiring for a Staff Software Engineer",
-    src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: <DummyContent />,
   },
 ];
@@ -153,7 +219,7 @@ export function CaseStudies({ items = data }: { items?: CaseItem[] }) {
   return (
     <>
       {/* GRID */}
-      <section className="w-full">
+      <section className="w-full ">
         <div
           ref={containerRef}
           className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6"
@@ -165,7 +231,7 @@ export function CaseStudies({ items = data }: { items?: CaseItem[] }) {
               className="cs-card group relative overflow-hidden rounded-2xl border border-black/5 bg-black/5 shadow transition-transform duration-300 will-change-transform hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-black/30 dark:border-white/10 dark:bg-white/5"
             >
               {/* Poster */}
-              <div className="relative aspect-video w-full overflow-hidden">
+              <div className="relative aspect-square w-full overflow-hidden">
                 <img
                   src={s.src}
                   alt={s.title}
@@ -173,17 +239,17 @@ export function CaseStudies({ items = data }: { items?: CaseItem[] }) {
                   draggable={false}
                   loading="lazy"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent opacity-70" />
+                <div className="cursor-pointer absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent opacity-70" />
                 <div className="pointer-events-none absolute inset-0 grid place-items-center">
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-black/80 text-base font-semibold text-white shadow">
+                  <span className="inline-flex p-2  items-center justify-center rounded-lg bg-black/80 text-base font-semibold text-white shadow">
                     View
                   </span>
                 </div>
               </div>
 
               {/* Caption */}
-              <div className="p-3 sm:p-4">
-                <p className="mt-1 text-sm font-semibold sm:text-base">
+              <div className="p-3 sm:p-4 bg-white">
+                <p className="mt-1 text-sm text-black font-semibold sm:text-base">
                   {s.title}
                 </p>
               </div>

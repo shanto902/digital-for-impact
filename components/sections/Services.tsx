@@ -9,11 +9,11 @@ export function Services() {
       <h2 className="text-4xl font-bold text-center mt-8 mb-14">
         Our Services
       </h2>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl px-5 mx-auto w-full">
         {/* Digital Marketing & Content Creation */}
         <WobbleCard containerClassName="col-span-1 lg:col-span-2 h-full bg-gradient-to-r from-green-800 to-green-600 min-h-[500px] lg:min-h-[300px]">
           <div className="max-w-xs">
-            <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+            <h2 className="text-left text-balance  text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
               Digital Marketing & Content Creation
             </h2>
             <p className="mt-4 text-left text-lg text-neutral-200">
@@ -33,7 +33,7 @@ export function Services() {
 
         {/* Branding & Creatives */}
         <WobbleCard containerClassName="col-span-1 bg-gradient-to-r from-purple-700 to-pink-500 min-h-[300px]">
-          <h2 className="max-w-80 text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+          <h2 className="max-w-80 text-left text-balance text-base text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
             Branding & Creatives
           </h2>
           <p className="mt-4 max-w-[26rem] text-left text-lg text-neutral-200">
@@ -44,7 +44,7 @@ export function Services() {
 
         {/* Production & Photography */}
         <WobbleCard containerClassName="col-span-1  bg-gradient-to-r from-amber-600 to-yellow-500 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
-          <h2 className="max-w-sm md:max-w-lg text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+          <h2 className="max-w-sm md:max-w-lg text-left text-balance text-base text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
             Production & Photography
           </h2>
           <p className="mt-4 max-w-[26rem] text-left text-lg text-neutral-200">
@@ -56,7 +56,7 @@ export function Services() {
         {/* Web Design & Development */}
         <WobbleCard containerClassName="col-span-1 lg:col-span-2 bg-gradient-to-r from-cyan-600 to-emerald-500 min-h-[400px] lg:min-h-[300px]">
           <div className="max-w-sm">
-            <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+            <h2 className="text-left text-balance text-base text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
               Web Design & Development
             </h2>
             <p className="mt-4 max-w-[26rem] text-left text-lg text-neutral-200">
