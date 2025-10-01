@@ -12,6 +12,7 @@ import {
 import { useState } from "react";
 import { NavbarButton } from "../buttons/NavbarButton";
 import { navItems } from "@/data";
+import ThemeToggle from "../toggles/ThemeToggle";
 
 export function NavBar({ children }: { children: React.ReactNode }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -24,8 +25,12 @@ export function NavBar({ children }: { children: React.ReactNode }) {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4 z-80">
+            <div>
+              {" "}
+              <ThemeToggle />
+            </div>
             <NavbarButton
-              className="rounded-full text-lg hover:bg-black/90 hover:text-white"
+              className="rounded-full text-lg bg-background hover:bg-foreground hover:text-background text-foreground"
               variant="primary"
               href="#contact"
             >
@@ -59,6 +64,7 @@ export function NavBar({ children }: { children: React.ReactNode }) {
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
+              <ThemeToggle />
               <NavbarButton
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"

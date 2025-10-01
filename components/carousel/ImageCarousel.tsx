@@ -12,7 +12,7 @@ export function ImageCarousel({ images }: { images: TAboutImage[] }) {
 
   return (
     <div className="w-full relative">
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white z-20"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-background z-20"></div>
       <Carousel items={cards} />
     </div>
   );

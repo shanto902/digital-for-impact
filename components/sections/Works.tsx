@@ -1,5 +1,13 @@
 "use client";
 
+import {
+  activationsData,
+  brandImages,
+  caseStudiesData,
+  dynamicVideos,
+  staticContents,
+  websitesData,
+} from "@/data";
 import ActivationsEvents from "../tabs/ActivationsEvents";
 import BrandIdentity from "../tabs/BrandIdentity";
 import { CaseStudies } from "../tabs/CaseStudies";
@@ -15,9 +23,9 @@ export function Works() {
       title: "Brand Identity",
       value: "bbi",
       content: (
-        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-purple-100 to-violet-200">
+        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black dark:text-white bg-gradient-to-br from-purple-100 to-violet-200 dark:from-purple-700 dark:to-violet-700">
           <Noise />
-          <BrandIdentity />
+          <BrandIdentity items={brandImages} />
         </div>
       ),
     },
@@ -25,9 +33,9 @@ export function Works() {
       title: "Static Content",
       value: "dsc",
       content: (
-        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-green-100 to-green-200">
+        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black dark:text-white bg-gradient-to-br from-green-100 to-green-200 dark:from-green-700 dark:to-green-700">
           <Noise />
-          <DigitalStatic />
+          <DigitalStatic items={staticContents} />
         </div>
       ),
     },
@@ -35,20 +43,19 @@ export function Works() {
       title: "Dynamic Content",
       value: "dac",
       content: (
-        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-purple-100 to-violet-200">
+        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black dark:text-white bg-gradient-to-br from-purple-100 to-violet-200 dark:from-purple-700 dark:to-violet-700">
           <Noise />
-          <DigitalAnimated />
+          <DigitalAnimated videos={dynamicVideos} />
         </div>
       ),
     },
-
     {
       title: "Web Development",
       value: "wtd",
       content: (
-        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-teal-100 to-teal-300">
+        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black dark:text-white bg-gradient-to-br from-teal-100 to-teal-300 dark:from-teal-700 dark:to-teal-700">
           <Noise />
-          <WebDevelopment />
+          <WebDevelopment items={websitesData} />
         </div>
       ),
     },
@@ -56,9 +63,9 @@ export function Works() {
       title: "Activations",
       value: "ae",
       content: (
-        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-yellow-100 to-orange-200">
+        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black dark:text-white bg-gradient-to-br from-yellow-100 to-orange-200 dark:from-yellow-700 dark:to-orange-700">
           <Noise />
-          <ActivationsEvents />
+          <ActivationsEvents items={activationsData} />
         </div>
       ),
     },
@@ -66,7 +73,7 @@ export function Works() {
       title: "Productions",
       value: "productions",
       content: (
-        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900 dark:from-purple-800 dark:to-violet-900">
           <p>Productions</p>
         </div>
       ),
@@ -75,9 +82,9 @@ export function Works() {
       title: "Case Studies",
       value: "casestudies",
       content: (
-        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-yellow-100  to-orange-200">
+        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-yellow-100 to-orange-200 dark:from-yellow-700 dark:to-orange-700">
           <Noise />
-          <CaseStudies />
+          <CaseStudies items={caseStudiesData} />
         </div>
       ),
     },

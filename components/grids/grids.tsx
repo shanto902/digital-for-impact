@@ -11,8 +11,8 @@ export function useMedia(
 ): number {
   const match = () =>
     typeof window !== "undefined"
-      ? values[queries.findIndex((q) => window.matchMedia(q).matches)] ??
-        defaultValue
+      ? (values[queries.findIndex((q) => window.matchMedia(q).matches)] ??
+        defaultValue)
       : defaultValue;
 
   const [value, setValue] = useState<number>(match);
@@ -36,17 +36,13 @@ interface Item {
   url?: string;
 }
 
-interface MasonryProps {
+interface GridProps {
   items: Item[];
   gap?: number; // px
   itemDelayMs?: number; // stagger gap per item
 }
 
-const Masonry: React.FC<MasonryProps> = ({
-  items,
-  gap = 16,
-  itemDelayMs = 60,
-}) => {
+const Grids: React.FC<GridProps> = ({ items, gap = 16, itemDelayMs = 60 }) => {
   const columns = useMedia(
     [
       "(min-width:1500px)",
@@ -211,4 +207,4 @@ const Masonry: React.FC<MasonryProps> = ({
   );
 };
 
-export default Masonry;
+export default Grids;

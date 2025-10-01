@@ -38,7 +38,7 @@ export const Tabs = ({
 
   return (
     <>
-      <div className="sticky top-30 z-50 bg-white/70 w-full backdrop-blur-2xl py-2">
+      <div className="sticky top-30 z-50 bg-background/70 w-full backdrop-blur-2xl py-2">
         {" "}
         <div
           className={cn(

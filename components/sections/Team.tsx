@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Team() {
   return (
-    <section className="relative px-5 md:px-10 mb-20 bg-white dark:bg-neutral-900 transition-colors duration-500">
+    <section className="relative px-5 md:px-10 mb-20 bg-background transition-colors duration-500">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
@@ -20,7 +20,7 @@ export default function Team() {
           {teamMembers.map((member) => (
             <div
               key={member.name}
-              className="group relative rounded-2xl overflow-hidden border border-neutral-200 dark:border-white/10 hover:bg-[#c0ff72]  bg-white dark:bg-neutral-800 shadow-sm hover:shadow-lg transition-all duration-300"
+              className="group relative rounded-2xl overflow-hidden border border-neutral-200 dark:border-white/10 hover:bg-[#c0ff72]  bg-background shadow-sm hover:shadow-lg transition-all duration-300"
             >
               {/* Image Wrapper */}
               <div className="relative overflow-hidden">

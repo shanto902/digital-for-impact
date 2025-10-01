@@ -11,10 +11,10 @@ type Props = {
 export default function SkewedVideos({ strips, className = "" }: Props) {
   return (
     <section
-      className={` w-full  bg-black ${className}`}
+      className={` w-full  bg-background ${className}`}
       aria-label="Diagonal video strips"
     >
-      <div className=" absolute inset-0 h-screen bg-gradient-to-b from-white via-transparent to-transparent z-20"></div>
+      <div className=" absolute inset-0 h-screen bg-gradient-to-b from-background via-transparent to-transparent z-20"></div>
 
       <div
         className={`absolute inset-0 -left-[10%] w-[120%] flex justify-center md:skew-x-[18deg] -skew-y-[18deg] md:-skew-y-0 `}

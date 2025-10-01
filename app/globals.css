@@ -51,7 +51,7 @@
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
+  --primary: #bffe72;
   --primary-foreground: oklch(0.984 0.003 247.858);
   --secondary: oklch(0.968 0.007 247.896);
   --secondary-foreground: oklch(0.208 0.042 265.755);
@@ -79,13 +79,13 @@
 }
 
 .dark {
-  --background: oklch(0.129 0.042 264.695);
+  --background: #0d0f0a;
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
+  --card-foreground: oklch(37.83% 0.04694 249.186);
   --popover: oklch(0.208 0.042 265.755);
   --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
+  --primary: #bffe72;
   --primary-foreground: oklch(0.208 0.042 265.755);
   --secondary: oklch(0.279 0.041 260.031);
   --secondary-foreground: oklch(0.984 0.003 247.858);
@@ -116,8 +116,107 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
+}
+
+body {
+  background-color: var(--background, white);
+  color: var(--foreground, black);
+  transition:
+    all 0.3s ease,
+    color 0.3s ease;
+}
+
+@layer components {
+  .richtext h1 {
+    @apply scroll-mt-24 text-4xl font-bold md:text-5xl;
+  }
+  .richtext h2 {
+    @apply scroll-mt-24 text-3xl font-bold md:text-4xl;
+  }
+  .richtext h3 {
+    @apply scroll-mt-24 text-2xl font-bold md:text-3xl;
+  }
+  .richtext h4 {
+    @apply scroll-mt-24 text-xl font-bold md:text-2xl;
+  }
+  .richtext h5 {
+    @apply scroll-mt-24 text-lg font-bold md:text-xl;
+  }
+  .richtext h6 {
+    @apply scroll-mt-24 text-base font-bold md:text-lg;
+  }
+  .richtext p {
+    @apply leading-7;
+  }
+  .richtext a {
+    @apply font-medium underline underline-offset-4;
+  }
+  .richtext ul {
+    @apply list-disc pl-6;
+  }
+  .richtext ol {
+    @apply list-decimal pl-6;
+  }
+  .richtext li {
+    @apply mt-1 leading-7;
+  }
+  .richtext blockquote {
+    @apply border-l-2 pl-6 italic;
+  }
+  .richtext hr {
+    @apply my-4 border-t border-border;
+  }
+  .richtext img {
+    @apply my-4 rounded-lg border border-border;
+  }
+  .richtext pre {
+    @apply my-4 overflow-x-auto rounded-lg border border-border bg-muted p-4;
+  }
+  .richtext table {
+    @apply w-full border-collapse my-8;
+  }
+  .richtext td {
+    @apply align-top px-4 md:px-6;
+    /* let the three cells share space nicely */
+    width: 33.3333%;
+  }
+
+  /* Figure = card */
+  .richtext figure {
+    @apply text-center space-y-3;
+  }
+  .richtext figure img {
+    @apply w-full h-auto rounded-2xl border border-border shadow-sm;
+  }
+  .richtext figure figcaption {
+    @apply text-sm leading-snug;
+  }
+
+  /* Row spacing */
+  .richtext tr + tr td {
+    @apply pt-8;
+  }
+
+  /* Mobile: stack nicely (no extra classes in HTML) */
+  @media (min-width: 768px) {
+    .richtext table,
+    .richtext tbody,
+    .richtext tr {
+      display: table;
+      width: 100%;
+    }
+  }
+  @media (max-width: 768px) {
+    .richtext table,
+    .richtext tbody,
+    .richtext tr,
+    .richtext td {
+      display: block;
+      width: 100%;
+    }
+    .richtext td {
+      @apply mb-8;
+    }
   }
 }
 @layer utilities {

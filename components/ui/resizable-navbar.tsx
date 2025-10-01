@@ -98,7 +98,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         damping: 50,
       }}
       style={{
-        minWidth: "800px",
+        minWidth: "900px",
       }}
       className={cn(
         "relative z-[80] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex dark:bg-transparent",
@@ -118,7 +118,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 z-80 hidden flex-1 flex-row items-center justify-center space-x-2 text-lg  text-White transition  duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
+        "absolute inset-0 z-80 hidden flex-1 flex-row items-center justify-center space-x-2 text-lg  text-White transition  duration-200 hover:text-background lg:flex lg:space-x-2",
         className
       )}
     >
@@ -126,17 +126,19 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <a
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-4 py-2 font-bold text-neutral-600 dark:text-neutral-300"
+          className="relative p-2 font-bold text-neutral-600 dark:text-neutral-300"
           key={`link-${idx}`}
           href={item.link}
         >
           {hovered === idx && (
             <motion.div
               layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-[#c0ff72] dark:bg-neutral-800"
+              className="absolute inset-0 h-full w-full   rounded-full bg-primary "
             />
           )}
-          <span className="relative z-20">{item.name}</span>
+          <span className="relative hover:dark:text-black px-2 py-2 z-20">
+            {item.name}
+          </span>
         </a>
       ))}
     </motion.div>

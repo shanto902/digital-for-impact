@@ -3,74 +3,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { gsap } from "gsap";
+import { TWebsiteTab } from "@/types";
 
-type SiteItem = {
-  id: string;
-  title: string;
-  poster: string; // small/regular thumbnail/poster
-  longShot: string; // long/tall screenshot shown in popup
-  url?: string; // optional live link
-};
-
-const demoSites: SiteItem[] = [
-  {
-    id: "s1",
-    title: "Chill Inn Thailand",
-    poster: "/images/wd-01.jpg",
-    longShot: "/images/wd-01.jpg",
-    url: "https://www.chillinnthailand.com/",
-  },
-  {
-    id: "s2",
-    title: "Anahata Samui",
-    poster: "/images/wd-02.jpg",
-    longShot: "/images/wd-02.jpg",
-    url: "https://anahatasamui.com/",
-  },
-  {
-    id: "s3",
-    title: "Samui Fishing Club",
-    poster: "/images/wd-03.jpg",
-    longShot: "/images/wd-03.jpg",
-    url: "https://samuifishingclubandresort.com/",
-  },
-
-  {
-    id: "s4",
-    title: "The Hive Samui ",
-    poster: "/images/wd-04.jpg",
-    longShot: "/images/wd-04.jpg",
-    url: "https://www.hivehotelsamui.com/",
-  },
-  {
-    id: "s5",
-    title: "Uhub - University Hostel",
-    poster: "/images/wd-05.jpg",
-    longShot: "/images/wd-05.jpg",
-    url: "https://uhubchaweng.com/",
-  },
-  {
-    id: "s6",
-    title: "Pixel Thailand",
-    poster: "/images/wd-06.jpg",
-    longShot: "/images/wd-06.jpg",
-    url: "https://www.pixelthailand.com/",
-  },
-  {
-    id: "s7",
-    title: "Paka Dhaka",
-    poster: "/images/wd-07.jpg",
-    longShot: "/images/wd-07.jpg",
-    url: "https://www.pakadhaka.shop/",
-  },
-];
-
-const WebDevelopment: React.FC<{ items?: SiteItem[] }> = ({
-  items = demoSites,
-}) => {
+const WebDevelopment: React.FC<{ items: TWebsiteTab[] }> = ({ items }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [mounted, setMounted] = useState(false); // for portal
-  const [active, setActive] = useState<SiteItem | null>(null);
+  const [active, setActive] = useState<TWebsiteTab | null>(null);
   const backdropRef = useRef<HTMLDivElement | null>(null);
   const cardRef = useRef<HTMLDivElement | null>(null);
 
@@ -92,7 +30,7 @@ const WebDevelopment: React.FC<{ items?: SiteItem[] }> = ({
     });
   }, [items]);
 
-  const openModal = (item: SiteItem) => setActive(item);
+  const openModal = (item: TWebsiteTab) => setActive(item);
 
   const closeModal = () => {
     if (!backdropRef.current || !cardRef.current) {

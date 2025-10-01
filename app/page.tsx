@@ -5,6 +5,7 @@ import Hero from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
 import Team from "@/components/sections/Team";
 import { Works } from "@/components/sections/Works";
+import { clientCompanies } from "@/data";
 import React from "react";
 
 const page = () => {
@@ -14,7 +15,7 @@ const page = () => {
       <About />
       <Services />
       <Works />
-      <Clients />
+      <Clients clientCompanies={clientCompanies} />
       <Team />
       <Collaborate />
     </>

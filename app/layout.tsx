@@ -3,6 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { NavBar } from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
+import { Provider } from "react-redux";
+import { store } from "@/store";
+import ReduxProvider from "@/components/layout/ReduxProvider";
+import ThemeWrapper from "@/components/layout/ThemeWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,12 +29,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html className="overflow-x-hidden" lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth overflow-x-hidden`}
       >
-        <NavBar>{children}</NavBar>
-        <Footer />
+        <ReduxProvider>
+          <ThemeWrapper>
+            <NavBar>{children}</NavBar>
+            <Footer />
+          </ThemeWrapper>
+        </ReduxProvider>
       </body>
     </html>
   );

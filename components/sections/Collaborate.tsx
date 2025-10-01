@@ -56,7 +56,7 @@ export default function Collaborate() {
   }
 
   return (
-    <section className="relative py-20 px-5 md:px-10 bg-white dark:bg-neutral-950 transition-colors">
+    <section className="relative py-20 px-5 md:px-10 bg-background transition-colors">
       {/* Ambient accent glow */}
       <div
         aria-hidden

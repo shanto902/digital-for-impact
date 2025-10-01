@@ -3,71 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { gsap } from "gsap";
-
-type VideoItem = {
-  id: string;
-  src: string; // video file url
-  poster?: string; // optional poster image
-  title?: string; // optional label
-};
-
-const demoVideos: VideoItem[] = [
-  {
-    id: "v1",
-    src: "/videos/dac-1.mp4",
-    poster: "/videos/one.jpg",
-  },
-  {
-    id: "v2",
-    src: "/videos/dac-2.mp4",
-    poster: "/videos/two.jpg",
-  },
-  {
-    id: "v3",
-    src: "/videos/dac-3.mp4",
-    poster: "/videos/three.jpg",
-  },
-  {
-    id: "v4",
-    src: "/videos/dac-4.mp4",
-    poster: "/videos/four.jpg",
-  },
-  {
-    id: "v5",
-    src: "/videos/dac-5.mp4",
-    poster: "/videos/five.jpg",
-  },
-  {
-    id: "v6",
-    src: "/videos/dac-6.mp4",
-    poster: "/videos/six.jpg",
-  },
-  {
-    id: "v7",
-    src: "/videos/dac-7.mp4",
-    poster: "/videos/seven.jpg",
-  },
-  {
-    id: "v8",
-    src: "/videos/dac-8.mp4",
-    poster: "/videos/eight.jpg",
-  },
-  {
-    id: "v9",
-    src: "/videos/dac-9.mp4",
-    poster: "/videos/nine.jpg",
-  },
-  {
-    id: "v10",
-    src: "/videos/dac-10.mp4",
-    poster: "/videos/ten.jpg",
-  },
-  {
-    id: "v11",
-    src: "/videos/dac-11.mp4",
-    poster: "/videos/eleven.jpg",
-  },
-];
+import { TVideoItem } from "@/types";
 
 const capturePoster = (src: string, timeInSeconds = 1): Promise<string> => {
   return new Promise((resolve, reject) => {
@@ -130,21 +66,16 @@ const capturePoster = (src: string, timeInSeconds = 1): Promise<string> => {
   });
 };
 
-const DigitalAnimated: React.FC<{ videos?: VideoItem[] }> = ({
-  videos = demoVideos,
-}) => {
+const DigitalAnimated: React.FC<{ videos: TVideoItem[] }> = ({ videos }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [mounted, setMounted] = useState(false); // for portal safety
-  const [active, setActive] = useState<VideoItem | null>(null);
+  const [active, setActive] = useState<TVideoItem | null>(null);
   const backdropRef = useRef<HTMLDivElement | null>(null);
   const cardRef = useRef<HTMLDivElement | null>(null);
 
-  // auto-generated posters map: id -> dataURL
   const [autoPosters, setAutoPosters] = useState<Record<string, string>>({});
 
   useEffect(() => setMounted(true), []);
-
-  // Generate posters for items that don't provide a poster
   useEffect(() => {
     let cancelled = false;
     const run = async () => {
@@ -155,9 +86,7 @@ const DigitalAnimated: React.FC<{ videos?: VideoItem[] }> = ({
           if (!cancelled) {
             setAutoPosters((m) => ({ ...m, [v.id]: dataUrl }));
           }
-        } catch {
-          // ignore failures; leave without a poster
-        }
+        } catch {}
       }
     };
     run();
@@ -183,7 +112,7 @@ const DigitalAnimated: React.FC<{ videos?: VideoItem[] }> = ({
     });
   }, [videos, autoPosters]);
 
-  const openModal = (item: VideoItem) => setActive(item);
+  const openModal = (item: TVideoItem) => setActive(item);
 
   const closeModal = () => {
     if (!backdropRef.current || !cardRef.current) {
@@ -232,7 +161,7 @@ const DigitalAnimated: React.FC<{ videos?: VideoItem[] }> = ({
     };
   }, [active]);
 
-  const getPoster = (v: VideoItem) => v.poster || autoPosters[v.id] || "";
+  const getPoster = (v: TVideoItem) => v.poster || autoPosters[v.id] || "";
 
   return (
     <>

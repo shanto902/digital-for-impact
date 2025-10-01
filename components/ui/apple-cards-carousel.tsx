@@ -140,10 +140,13 @@ export const Carousel = ({
   const schedule = useCallback(() => {
     if (!autoPlay || paused || prefersReducedMotion()) return;
     clearTimer();
-    timer.current = setTimeout(() => {
-      playNext();
-      schedule();
-    }, Math.max(1500, interval));
+    timer.current = setTimeout(
+      () => {
+        playNext();
+        schedule();
+      },
+      Math.max(1500, interval)
+    );
   }, [autoPlay, interval, paused, playNext]);
 
   useEffect(() => {
@@ -249,20 +252,20 @@ export const Carousel = ({
 
         <div className="ml-5 flex justify-start gap-2">
           <button
-            className="relative z-40 flex h-10 w-10 items-center cursor-pointer justify-center rounded-full bg-gray-100 disabled:opacity-50 hover:bg-green-200"
+            className="relative z-40 flex h-10 w-10 items-center cursor-pointer justify-center rounded-full bg-background disabled:opacity-50 hover:bg-primary text-foreground"
             onClick={scrollLeft}
             disabled={!canScrollLeft}
             aria-label="Previous"
           >
-            <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
+            <IconArrowNarrowLeft className="h-6 w-6 text-foreground" />
           </button>
           <button
-            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 hover:bg-green-200 disabled:opacity-50 cursor-pointer"
+            className="relative z-40 flex h-10 w-10 items-center cursor-pointer justify-center rounded-full bg-background disabled:opacity-50 hover:bg-primary text-foreground"
             onClick={scrollRight}
             disabled={!canScrollRight}
             aria-label="Next"
           >
-            <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
+            <IconArrowNarrowRight className="h-6 w-6 text-foreground" />
           </button>
         </div>
       </div>

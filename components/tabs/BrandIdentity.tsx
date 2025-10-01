@@ -2,80 +2,13 @@
 
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-
-type BrandItem = {
-  id: string;
-  src: string; // image path
-  href: string; // link
-  title?: string;
-};
+import { brandImages } from "@/data";
+import { TBrandItem } from "@/types";
 
 // In the future you can replace this with API data
-export const images: BrandItem[] = [
-  {
-    id: "bi-01",
-    src: "/images/bi-01.png",
-    href: "https://www.gameof11.com/",
-    title: "Game of 11",
-  },
-  {
-    id: "bi-02",
-    src: "/images/bi-02.png",
-    href: "https://www.facebook.com/MooliciousBD/",
-    title: "Moolicious",
-  },
-  {
-    id: "bi-03",
-    src: "/images/bi-03.png",
-    href: "https://www.facebook.com/CThreeSixty/",
-    title: "CThreeSixty",
-  },
-  {
-    id: "bi-04",
-    src: "/images/bi-04.png",
-    href: "https://www.facebook.com/gofood.live/",
-    title: "GoFood",
-  },
-  {
-    id: "bi-05",
-    src: "/images/bi-05.png",
-    href: "https://nsusn.framer.ai/",
-    title: "NSU Startup Next",
-  },
-  {
-    id: "bi-06",
-    src: "/images/bi-06.png",
-    href: "https://firsttrip.com/",
-    title: "FirstTrip",
-  },
-  {
-    id: "bi-07",
-    src: "/images/bi-07.png",
-    href: "https://example.com/brand-7",
-    title: "Lotus",
-  },
-  {
-    id: "bi-08",
-    src: "/images/bi-08.png",
-    href: "https://marveloftomorrow.xyz/",
-    title: "Marvel of Tomorrow",
-  },
-  {
-    id: "bi-09",
-    src: "/images/bi-09.png",
-    href: "https://fbcci.org/",
-    title: "FBCCI",
-  },
-  {
-    id: "bi-10",
-    src: "/images/bi-10.png",
-    href: "https://www.programming-hero.com/",
-    title: "Programming Hero",
-  },
-];
 
-const BrandIdentity: React.FC<{ items?: BrandItem[] }> = ({
-  items = images,
+const BrandIdentity: React.FC<{ items: TBrandItem[] }> = ({
+  items = brandImages,
 }) => {
   const gridRef = useRef<HTMLDivElement | null>(null);
 

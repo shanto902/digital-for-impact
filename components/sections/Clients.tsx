@@ -1,12 +1,10 @@
 import React from "react";
-
 import LogoLoop from "../ui/logo-loop";
-import { clientCompanies } from "@/data";
-// Alternative with image sources
+import { TClient } from "@/types";
 
-const Clients = () => {
+const Clients = ({ clientCompanies }: { clientCompanies: TClient[] }) => {
   return (
-    <section className="mt-35  mx-auto   px-4">
+    <section className="mt-35 mx-auto px-4">
       <h2 className="text-4xl font-bold text-center my-8">Our Clients</h2>
       <div
         style={{ height: "150px", position: "relative", overflow: "hidden" }}
@@ -20,7 +18,7 @@ const Clients = () => {
           pauseOnHover
           scaleOnHover
           fadeOut
-          fadeOutColor="#ffffff"
+          fadeOutColor="var(--background)" // ✅ replaced with CSS variable
           ariaLabel="Technology partners"
         />
       </div>
