@@ -1,28 +1,14 @@
 "use client";
 
+import { THomeVideo } from "@/types";
 import React from "react";
 
-type Strip = {
-  src: string;
-  poster?: string;
-  onClick?: () => void;
-  label?: string;
-};
-
 type Props = {
-  strips: [Strip, Strip, Strip];
-  angleDeg?: number;
+  strips: THomeVideo[];
   className?: string;
 };
 
-export default function SkewedVideos({
-  strips,
-  angleDeg = 18,
-  className = "",
-}: Props) {
-  const skewNeg = `skew-y-[-${angleDeg}deg]`;
-  const skewPos = `skew-y-[${angleDeg}deg]`;
-
+export default function SkewedVideos({ strips, className = "" }: Props) {
   return (
     <section
       className={` w-full  bg-black ${className}`}
@@ -38,7 +24,6 @@ export default function SkewedVideos({
             <button
               key={i}
               type="button"
-              onClick={s.onClick}
               aria-label={s.label ?? `Video strip ${i + 1}`}
               className="relative block h-screen  overflow-hidden focus:outline-none"
             >

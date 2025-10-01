@@ -11,23 +11,9 @@ import {
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
 import { NavbarButton } from "../buttons/NavbarButton";
+import { navItems } from "@/data";
 
 export function NavBar({ children }: { children: React.ReactNode }) {
-  const navItems = [
-    {
-      name: "About Us",
-      link: "#about",
-    },
-    {
-      name: "Our Work",
-      link: "#portfolio",
-    },
-    {
-      name: "Team",
-      link: "#team",
-    },
-  ];
-
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (

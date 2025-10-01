@@ -2,9 +2,11 @@
 
 import React from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
+import { aboutImages } from "@/data";
+import { TAboutImage } from "@/types";
 
-export function AboutImages() {
-  const cards = data.map((card, index) => (
+export function ImageCarousel({ images }: { images: TAboutImage[] }) {
+  const cards = images.map((card, index) => (
     <Card key={card.src} card={card} index={index} />
   ));
 
@@ -15,18 +17,3 @@ export function AboutImages() {
     </div>
   );
 }
-
-const data = [
-  {
-    src: "/images/about-1.jpg",
-  },
-  {
-    src: "/images/about-2.jpg",
-  },
-  {
-    src: "/images/about-3.jpg",
-  },
-  {
-    src: "/images/about-4.jpg",
-  },
-];

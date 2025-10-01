@@ -63,7 +63,7 @@ export default function Footer({
           <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-4 text-sm md:text-base text-neutral-700 dark:text-neutral-300">
             <a
               href="tel:+66806320811"
-              className="hover:text-[#c0ff72] transition-colors"
+              className="hover:underline decoration-[#c0ff72] transition-colors"
             >
               📞 +66806320811
             </a>

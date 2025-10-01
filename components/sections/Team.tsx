@@ -1,29 +1,7 @@
 "use client";
+import { teamDescription, teamMembers, teamTitle } from "@/data";
 import { Linkedin } from "lucide-react";
 import Image from "next/image";
-
-const teamMembers = [
-  {
-    name: "Murtaza Shujauddin",
-    role: "Managing Director",
-    img: "/images/team1.png",
-  },
-  {
-    name: "Kazi Tahmid Imam",
-    role: "Partner, APAC",
-    img: "/images/team2.png",
-  },
-  {
-    name: "Syed Ahsan Rahat",
-    role: "Director",
-    img: "/images/team3.png",
-  },
-  {
-    name: "Ziaus Shams",
-    role: "Director of Production",
-    img: "/images/team4.png",
-  },
-];
 
 export default function Team() {
   return (
@@ -31,13 +9,9 @@ export default function Team() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-center">
-            Meet our board members
-          </h2>
+          <h2 className="text-4xl font-bold text-center">{teamTitle}</h2>
           <p className="mt-3 text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-            A diverse group of passionate professionals, each bringing unique
-            skills and experiences to drive innovation and excellence in every
-            project we undertake.
+            {teamDescription}
           </p>
         </div>
 
@@ -60,9 +34,12 @@ export default function Team() {
 
                 {/* LinkedIn Button */}
                 <a
-                  href={`https://www.linkedin.com/search/results/all/?keywords=${encodeURIComponent(
-                    member.name
-                  )}`}
+                  href={
+                    member.linkedin ||
+                    `https://www.linkedin.com/search/results/all/?keywords=${encodeURIComponent(
+                      member.name
+                    )}`
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                   className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 bg-white/90 dark:bg-black/80 text-green-600 dark:text-green-400 p-2 rounded-full transition-all duration-300 hover:scale-110"

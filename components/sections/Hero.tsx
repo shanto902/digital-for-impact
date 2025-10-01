@@ -1,36 +1,19 @@
 import React from "react";
 import BlurText from "../texts/BlurText";
 import SkewedVideos from "../grids/SkewedVideos";
+import { THomeVideo } from "@/types";
+import { heroText, homeVideos } from "@/data";
 
 const Hero = () => {
   return (
     <main className="min-h-screen  w-full  h-full">
       <div className="absolute inset-0 max-w-[1920px] mx-auto overflow-hidden -z-10">
-        <SkewedVideos
-          angleDeg={18}
-          strips={[
-            {
-              src: "/videos/Video1.mp4",
-              poster: "/images/Video1.jpg",
-              label: "Showroom",
-            },
-            {
-              src: "/videos/Video2.mp4",
-              poster: "/images/Video2.jpg",
-              label: "Products",
-            },
-            {
-              src: "/videos/Video3.mp4",
-              poster: "/images/Video3.jpg",
-              label: "Installations",
-            },
-          ]}
-        />
+        <SkewedVideos strips={homeVideos} />
       </div>
 
       <section className="absolute inset-0 flex items-center justify-center">
         <BlurText
-          text="Digital Disruption Delivered"
+          text={heroText}
           delay={150}
           animateBy="words"
           direction="top"

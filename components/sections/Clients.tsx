@@ -1,79 +1,8 @@
 import React from "react";
 
 import LogoLoop from "../ui/logo-loop";
+import { clientCompanies } from "@/data";
 // Alternative with image sources
-const imageLogos = [
-  {
-    src: "/images/client-01.png",
-    alt: "Company 1",
-    href: "https://company1.com",
-  },
-  {
-    src: "/images/client-02.png",
-    alt: "Company 2",
-    href: "https://company2.com",
-  },
-  {
-    src: "/images/client-03.png",
-    alt: "Company 3",
-    href: "https://company3.com",
-  },
-  {
-    src: "/images/client-04.png",
-    alt: "Company 4",
-    href: "https://company4.com",
-  },
-  {
-    src: "/images/client-05.png",
-    alt: "Company 3",
-    href: "https://company3.com",
-  },
-  {
-    src: "/images/client-06.png",
-    alt: "Company 3",
-    href: "https://company3.com",
-  },
-  {
-    src: "/images/client-07.png",
-    alt: "Company 3",
-    href: "https://company3.com",
-  },
-  {
-    src: "/images/client-08.png",
-    alt: "Company 3",
-    href: "https://company3.com",
-  },
-  {
-    src: "/images/client-09.png",
-    alt: "Company 3",
-    href: "https://company3.com",
-  },
-  {
-    src: "/images/client-10.png",
-    alt: "Company 3",
-    href: "https://company3.com",
-  },
-  {
-    src: "/images/client-11.png",
-    alt: "Company 3",
-    href: "https://company3.com",
-  },
-  {
-    src: "/images/client-12.jpg",
-    alt: "Company 3",
-    href: "https://company3.com",
-  },
-  {
-    src: "/images/client-13.png",
-    alt: "Company 3",
-    href: "https://company3.com",
-  },
-  {
-    src: "/images/client-14.png",
-    alt: "Company 3",
-    href: "https://company3.com",
-  },
-];
 
 const Clients = () => {
   return (
@@ -83,7 +12,7 @@ const Clients = () => {
         style={{ height: "150px", position: "relative", overflow: "hidden" }}
       >
         <LogoLoop
-          logos={imageLogos}
+          logos={clientCompanies}
           speed={120}
           direction="left"
           logoHeight={60}

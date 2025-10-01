@@ -7,6 +7,7 @@ import DigitalAnimated from "../tabs/DigitalAnimated";
 import DigitalStatic from "../tabs/DigitalStatic";
 import WebDevelopment from "../tabs/WebDevelopment";
 import { Tabs } from "../ui/tabs";
+import { Noise } from "../ui/wobble-card";
 
 export function Works() {
   const tabs = [
@@ -14,7 +15,8 @@ export function Works() {
       title: "Brand Identity",
       value: "bbi",
       content: (
-        <div className="w-full overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-purple-100 to-violet-200">
+        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-purple-100 to-violet-200">
+          <Noise />
           <BrandIdentity />
         </div>
       ),
@@ -23,7 +25,8 @@ export function Works() {
       title: "Static Content",
       value: "dsc",
       content: (
-        <div className="w-full overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-green-100 to-green-200">
+        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-green-100 to-green-200">
+          <Noise />
           <DigitalStatic />
         </div>
       ),
@@ -32,7 +35,8 @@ export function Works() {
       title: "Dynamic Content",
       value: "dac",
       content: (
-        <div className="w-full overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-purple-100 to-violet-200">
+        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-purple-100 to-violet-200">
+          <Noise />
           <DigitalAnimated />
         </div>
       ),
@@ -42,7 +46,8 @@ export function Works() {
       title: "Web Development",
       value: "wtd",
       content: (
-        <div className="w-full overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-teal-100 to-teal-300">
+        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-teal-100 to-teal-300">
+          <Noise />
           <WebDevelopment />
         </div>
       ),
@@ -51,7 +56,8 @@ export function Works() {
       title: "Activations",
       value: "ae",
       content: (
-        <div className="w-full overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-yellow-100 to-orange-200">
+        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black bg-gradient-to-br from-yellow-100 to-orange-200">
+          <Noise />
           <ActivationsEvents />
         </div>
       ),
@@ -60,7 +66,7 @@ export function Works() {
       title: "Productions",
       value: "productions",
       content: (
-        <div className="w-full overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
           <p>Productions</p>
         </div>
       ),
@@ -69,7 +75,8 @@ export function Works() {
       title: "Case Studies",
       value: "casestudies",
       content: (
-        <div className="w-full overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-yellow-100  to-orange-200">
+        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-yellow-100  to-orange-200">
+          <Noise />
           <CaseStudies />
         </div>
       ),
