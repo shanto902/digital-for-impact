@@ -7,8 +7,10 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "motion/react";
-
 import React, { useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/store";
+import { useResolvedColorMode } from "@/helper/useResolvedColorMode";
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -229,14 +231,31 @@ export const MobileNavToggle = ({
     <IconMenu2 className="text-black dark:text-white" onClick={onClick} />
   );
 };
-
+// 🔁 Replace your existing NavbarLogo with this:
 export const NavbarLogo = () => {
+  // assumes your slice is `themeSlice` with state.theme.mode: "light" | "dark" | "system"
+  const mode = useSelector((s: RootState) => s.theme.mode);
+  const resolved = useResolvedColorMode(mode);
+
+  // point these to your actual assets
+  const logoLight = "/logo-dfi.png";
+  const logoDark = "/dfi-dark-logo.png";
+
+  const src = resolved === "dark" ? logoDark : logoLight;
+
   return (
     <a
       href="#"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
+      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black dark:text-white"
+      aria-label="Digital For Impact — Home"
     >
-      <img src="/logo-dfi.png" alt="logo" width={140} height={50} />
+      <img
+        src={src}
+        alt="Digital For Impact logo"
+        width={140}
+        height={50}
+        className="h-auto w-[140px]"
+      />
     </a>
   );
 };

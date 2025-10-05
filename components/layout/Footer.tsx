@@ -41,13 +41,8 @@ export default function Footer({
   ],
 }: Props) {
   return (
-    <footer className="relative mt-20 bg-white dark:bg-neutral-950 border-t border-neutral-200/70 dark:border-white/10 transition-colors">
+    <footer className="relative  bg-background border-t border-neutral-200/70 dark:border-white/10 transition-colors">
       {/* ambient glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-48 w-[36rem] rounded-full blur-3xl
-                   bg-gradient-to-r from-[#c0ff72]/20 via-[#c0ff72]/20 to-[#c0ff72]/20 dark:from-[#c0ff72]/10 dark:via-[#c0ff72]/10 dark:to-[#c0ff72]/10"
-      />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-14">
         {/* Brand block */}
@@ -110,7 +105,7 @@ export default function Footer({
                     height={80}
                     className="h-10 md:h-20 w-auto mx-auto opacity-80 grayscale contrast-75
                                hover:opacity-100 hover:grayscale-0 hover:contrast-100
-                               transition-all duration-300"
+                               transition-all duration-300 bg-white rounded-md"
                     priority={i === 0}
                   />
                 );

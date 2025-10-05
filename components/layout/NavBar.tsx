@@ -77,8 +77,6 @@ export function NavBar({ children }: { children: React.ReactNode }) {
         </MobileNav>
       </Navbar>
       <MainContents>{children}</MainContents>
-
-      {/* Navbar */}
     </>
   );
 }
