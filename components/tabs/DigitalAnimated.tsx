@@ -1,116 +1,98 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, memo } from "react";
 import { createPortal } from "react-dom";
 import { gsap } from "gsap";
+import Image from "next/image";
 import { TVideoItem } from "@/types";
 
-const capturePoster = (src: string, timeInSeconds = 1): Promise<string> => {
-  return new Promise((resolve, reject) => {
-    const video = document.createElement("video");
-    video.src = src;
-    video.crossOrigin = "anonymous"; // keep for remote files (requires CORS)
-    video.muted = true; // some browsers require muted to seek/autoplay programmatically
-    video.playsInline = true;
+interface VideoCardProps {
+  video: TVideoItem;
+  generatedPoster?: string;
+  onClick: (v: TVideoItem) => void;
+}
 
-    const cleanup = () => {
-      video.pause();
-      video.src = "";
-      video.removeAttribute("src");
-      video.load();
-    };
+const VideoCard = memo(({ video, generatedPoster, onClick }: VideoCardProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const posterSrc =  generatedPoster;
 
-    const onError = (e: Event) => {
-      cleanup();
-      reject(new Error(`Failed to load video for poster: ${src}`));
-    };
+  return (
+    <button
+      onClick={() => onClick(video)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="video-card group relative overflow-hidden rounded-2xl hover:shadow-lg transition-all duration-300 will-change-transform focus:outline-none focus:ring-2 focus:ring-black/30 w-full bg-neutral-200 dark:bg-neutral-800"
+    >
+      <div className="relative aspect-square w-full overflow-hidden flex items-center justify-center">
+        {/* Static Poster */}
+        {posterSrc ? (
+          <Image
+            src={posterSrc}
+            alt={video.title || "Video thumbnail"}
+            fill
+            className="object-cover transition-opacity duration-300"
+            sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 20vw, 16vw"
+            unoptimized={!!generatedPoster}
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-neutral-400">
+             <svg className="w-8 h-8 opacity-20" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+          </div>
+        )}
 
-    const onSeeked = () => {
-      try {
-        const canvas = document.createElement("canvas");
-        canvas.width = video.videoWidth || 1280;
-        canvas.height = video.videoHeight || 720;
-        const ctx = canvas.getContext("2d");
-        if (!ctx) throw new Error("Canvas 2D not supported");
-        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-        const dataUrl = canvas.toDataURL("image/jpeg", 0.82);
-        cleanup();
-        resolve(dataUrl);
-      } catch (err) {
-        cleanup();
-        reject(err);
-      }
-    };
+        {/* Video Player (Only on Hover) */}
+        {isHovered && (
+          <video
+            src={video.src}
+            className="absolute inset-0 h-full w-full object-cover z-10"
+            playsInline
+            muted
+            autoPlay
+            loop
+          />
+        )}
 
-    // When metadata is ready we can know dimensions and safely seek
-    const onLoadedMeta = () => {
-      // clamp seek time if video shorter than requested
-      const target = Math.min(timeInSeconds, video.duration || timeInSeconds);
-      // iOS sometimes needs a play/pause before seeking
-      const trySeek = () => {
-        video.currentTime = target > 0 ? target : 0.1;
-      };
-      try {
-        trySeek();
-      } catch {
-        // fallback: wait a tick
-        setTimeout(trySeek, 50);
-      }
-    };
+        {/* Gradient Overlay */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent opacity-70 z-20" />
+      </div>
+    </button>
+  );
+});
 
-    video.addEventListener("error", onError, { once: true });
-    video.addEventListener("loadedmetadata", onLoadedMeta, { once: true });
-    video.addEventListener("seeked", onSeeked, { once: true });
-    // Start load
-    video.load();
-  });
-};
+VideoCard.displayName = "VideoCard";
 
 const DigitalAnimated: React.FC<{ videos: TVideoItem[] }> = ({ videos }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [mounted, setMounted] = useState(false); // for portal safety
+  const [mounted, setMounted] = useState(false);
   const [active, setActive] = useState<TVideoItem | null>(null);
   const backdropRef = useRef<HTMLDivElement | null>(null);
   const cardRef = useRef<HTMLDivElement | null>(null);
 
-  const [autoPosters, setAutoPosters] = useState<Record<string, string>>({});
-
   useEffect(() => setMounted(true), []);
-  useEffect(() => {
-    let cancelled = false;
-    const run = async () => {
-      for (const v of videos) {
-        if (v.poster || autoPosters[v.id]) continue;
-        try {
-          const dataUrl = await capturePoster(v.src, 1); // pick frame at 1s
-          if (!cancelled) {
-            setAutoPosters((m) => ({ ...m, [v.id]: dataUrl }));
-          }
-        } catch {}
-      }
-    };
-    run();
-    return () => {
-      cancelled = true;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [videos]);
 
-  // Stagger in on mount/update
+  // No need for complex fetching useEffect anymore. 
+  // We construct the URL directly in the render or via a helper.
+  
+  // GSAP Animation
   useEffect(() => {
     if (!containerRef.current) return;
-    const cards = Array.from(
-      containerRef.current.querySelectorAll(".video-card")
+    // Select only video cards roughly
+    const cards = containerRef.current.querySelectorAll(".video-card");
+    if (cards.length === 0) return;
+    
+    gsap.fromTo(
+      cards,
+      { opacity: 0, y: 24 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power3.out",
+        stagger: 0.08,
+        clearProps: "all",
+      }
     );
-    gsap.from(cards, {
-      opacity: 0,
-      y: 24,
-      duration: 0.6,
-      ease: "power3.out",
-      stagger: 0.08,
-      clearProps: "all",
-    });
-  }, [videos, autoPosters]);
+  }, [videos]); // Removed autoPosters dependency to prevent re-animating on every poster load
 
   const openModal = (item: TVideoItem) => setActive(item);
 
@@ -131,7 +113,7 @@ const DigitalAnimated: React.FC<{ videos: TVideoItem[] }> = ({ videos }) => {
     );
   };
 
-  // Animate modal in + lock scroll + Esc to close
+  // Modal Animation & Keyboard
   useEffect(() => {
     if (!active) return;
 
@@ -161,41 +143,23 @@ const DigitalAnimated: React.FC<{ videos: TVideoItem[] }> = ({ videos }) => {
     };
   }, [active]);
 
-  const getPoster = (v: TVideoItem) => v.poster || autoPosters[v.id] || "";
-
   return (
     <>
-      <section className="w-full ">
+      <section className="w-full">
         <div
           ref={containerRef}
           className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-2 sm:grid-cols-4 lg:grid-cols-5"
         >
-          {videos.map((v) => {
-            const poster = getPoster(v);
-            return (
-              <button
-                key={v.id}
-                onClick={() => openModal(v)}
-                className=" group relative overflow-hidden rounded-2xl hover:shadow-lg transition-all duration-300 will-change-transform focus:outline-none focus:ring-2 focus:ring-black/30"
-              >
-                {/* Poster / video preview */}
-                <div className="relative aspect-square w-full overflow-hidden">
-                  {
-                    <video
-                      src={v.src}
-                      className="h-full w-full object-cover"
-                      playsInline
-                      muted
-                      autoPlay
-                      loop
-                    />
-                  }
-
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent opacity-70" />
-                </div>
-              </button>
-            );
-          })}
+          {videos.map((v) => (
+            <VideoCard
+              key={v.id}
+              video={v}
+              generatedPoster={
+                  v.poster || `/api/poster?videoSrc=${encodeURIComponent(v.src)}`
+              }
+              onClick={openModal}
+            />
+          ))}
         </div>
       </section>
 
@@ -205,31 +169,44 @@ const DigitalAnimated: React.FC<{ videos: TVideoItem[] }> = ({ videos }) => {
         createPortal(
           <div
             ref={backdropRef}
-            className="fixed inset-0 z-[99999] bg-black/70 backdrop-blur-[2px] flex items-center justify-center p-4"
+            className="fixed inset-0 z-[99999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
             role="dialog"
             aria-modal="true"
             onClick={closeModal}
           >
             <div
               ref={cardRef}
-              className="relative"
+              className="relative w-full max-w-5xl flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close button */}
               <button
                 onClick={closeModal}
                 aria-label="Close"
-                className="absolute -top-3 -right-3 md:-top-4 md:-right-4 h-10 w-10 md:h-12 md:w-12 rounded-full bg-black text-white grid place-items-center shadow-lg border border-white/10"
+                className="absolute -top-12 right-0 md:-right-12 text-white/70 hover:text-white transition-colors"
               >
-                ✕
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  className="w-8 h-8 md:w-10 md:h-10"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
               </button>
 
-              {/* Responsive, ratio-friendly box */}
-              <div className="rounded-2xl shadow-2xl bg-neutral-950 flex items-center justify-center max-w-[92vw] max-h-[82vh]">
+              <div className="rounded-2xl shadow-2xl overflow-hidden bg-neutral-950 w-auto max-h-[85vh]">
                 <video
                   src={active.src}
-                  poster={active.poster || autoPosters[active.id]}
-                  className="block w-auto h-auto max-w-[92vw] max-h-[82vh] object-contain select-none"
+                  poster={active.poster || `/api/poster?videoSrc=${encodeURIComponent(active.src)}`}
+                  className="w-full h-full max-h-[85vh] object-contain"
                   controls
                   autoPlay
                   playsInline
@@ -237,8 +214,8 @@ const DigitalAnimated: React.FC<{ videos: TVideoItem[] }> = ({ videos }) => {
               </div>
 
               {active.title && (
-                <div className="mt-3 text-white/90">
-                  <p className="text-sm sm:text-base">{active.title}</p>
+                <div className="absolute -bottom-10 left-0 text-white/90">
+                  <p className="text-lg font-medium">{active.title}</p>
                 </div>
               )}
             </div>

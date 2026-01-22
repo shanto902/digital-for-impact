@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { brandImages } from "@/data";
 import { TBrandItem } from "@/types";
@@ -41,14 +42,16 @@ const BrandIdentity: React.FC<{ items: TBrandItem[] }> = ({
             title={b.title}
           >
             <div className="aspect-square p-5 flex items-center justify-center">
-              <img
-                src={b.src}
-                alt={b.title ?? b.id}
-                className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.05]"
-                loading="lazy"
-                decoding="async"
-                draggable={false}
-              />
+              <div className="relative w-full h-full">
+                <Image
+                  src={b.src}
+                  alt={b.title ?? b.id}
+                  fill
+                  className="object-contain transition-transform duration-300 group-hover:scale-[1.05]"
+                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 20vw, 16vw"
+                  draggable={false}
+                />
+              </div>
             </div>
           </a>
         ))}

@@ -27,10 +27,6 @@ export const navItems: TNavItem[] = [
   },
 ];
 export const aboutDescriptionHtml = `
-<p>We all know the punchline: "A digital marketing specialist, a client services professional, a visual storyteller, and a jack-of-all-trades walk into a bar..."</p>
-<p>Except for us, that wasn't the punchline—it was the beginning of our journey. What we thought was going to be just a night out turned into a brainstorming session on a better way to do digital. We had all seen the same thing: agencies that talked a big game but delivered cookie-cutter campaigns, left clients in the dark, and treated their work like a checklist instead of a craft.</p>
-<p>So, fueled by mutual respect, shared frustration, and probably a few rounds of coffee, we decided to do things differently. We pooled our decades of experience, our diverse skill sets, and our little black books of contacts to create something more agile, more personal, and a lot more effective. That's how Digital for Impact was born.</p>
-
 <strong>We're Not a Digital Agency.</strong>
 <p>We're a boutique 360° creative and digital service provider that specializes in content, strategy, and web development. But what does that really mean?</p>
 <p>It means we don't just "do digital marketing." We get into the trenches with you, dig deep into your business goals, and figure out the smartest, most creative ways to get you where you need to be. We're the problem-solvers who see a challenge and get genuinely excited about finding a clever solution.</p>
@@ -361,57 +357,46 @@ export const dynamicVideos: TVideoItem[] = [
   {
     id: "v1",
     src: "/videos/dac-1.mp4",
-    poster: "/videos/one.jpg",
   },
   {
     id: "v2",
     src: "/videos/dac-2.mp4",
-    poster: "/videos/two.jpg",
   },
   {
     id: "v3",
     src: "/videos/dac-3.mp4",
-    poster: "/videos/three.jpg",
   },
   {
     id: "v4",
     src: "/videos/dac-4.mp4",
-    poster: "/videos/four.jpg",
   },
   {
     id: "v5",
     src: "/videos/dac-5.mp4",
-    poster: "/videos/five.jpg",
   },
   {
     id: "v6",
     src: "/videos/dac-6.mp4",
-    poster: "/videos/six.jpg",
   },
   {
     id: "v7",
     src: "/videos/dac-7.mp4",
-    poster: "/videos/seven.jpg",
   },
   {
     id: "v8",
     src: "/videos/dac-8.mp4",
-    poster: "/videos/eight.jpg",
   },
   {
     id: "v9",
     src: "/videos/dac-9.mp4",
-    poster: "/videos/nine.jpg",
   },
   {
     id: "v10",
     src: "/videos/dac-10.mp4",
-    poster: "/videos/ten.jpg",
   },
   {
     id: "v11",
     src: "/videos/dac-11.mp4",
-    poster: "/videos/eleven.jpg",
   },
 ];
 

@@ -69,15 +69,15 @@ export function Works() {
         </div>
       ),
     },
-    {
-      title: "Productions",
-      value: "productions",
-      content: (
-        <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900 dark:from-purple-800 dark:to-violet-900">
-          <p>Productions</p>
-        </div>
-      ),
-    },
+    // {
+    //   title: "Productions",
+    //   value: "productions",
+    //   content: (
+    //     <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900 dark:from-purple-800 dark:to-violet-900">
+    //       <p>Productions</p>
+    //     </div>
+    //   ),
+    // },
     {
       title: "Case Studies",
       value: "casestudies",
