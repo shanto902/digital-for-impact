@@ -219,6 +219,53 @@ body {
     }
   }
 }
+
+/* Beautiful Scrollbar */
+@layer base {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.8 0.1 1.5 / 0.2);
+    border-radius: 5px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    transition: background 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #bffe72;
+    background-clip: content-box;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: oklch(0.4 0.1 1.5 / 0.4);
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: #bffe72;
+    background-clip: content-box;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(0.8 0.1 1.5 / 0.2) transparent;
+  }
+
+  .dark * {
+    scrollbar-color: oklch(0.4 0.1 1.5 / 0.4) transparent;
+  }
+}
+
 @layer utilities {
   @keyframes text-shine {
     0% {
@@ -232,4 +279,12 @@ body {
   .animate-text-shine {
     animation: text-shine 5s ease-in-out infinite alternate;
   }
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  cursor: pointer;
 }

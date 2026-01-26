@@ -27,6 +27,9 @@ export type TServiceItem = {
   title: string;
   description: string;
   image?: string;
+  poster?: string; // Add this
+  icon?: string; // Change to string (icon name)
+  accentColor?: string; // Add this
   gradient?: string;
   gridSpan?: string;
   minHeight?: string;

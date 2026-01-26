@@ -11,6 +11,7 @@ import React, {
 import { IconArrowNarrowLeft, IconArrowNarrowRight } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -277,10 +278,12 @@ export const Card = ({
   card,
   index,
   layout = false,
+  priority = false,
 }: {
   card: Card;
   index: number;
   layout?: boolean;
+  priority?: boolean;
 }) => {
   return (
     <motion.button
@@ -292,6 +295,7 @@ export const Card = ({
         src={card.src}
         alt={"about-us"}
         className="absolute inset-0 z-10 object-cover"
+        priority={priority}
       />
     </motion.button>
   );
@@ -303,7 +307,8 @@ export const BlurImage = ({
   src,
   className,
   alt,
-  sizes = "(min-width: 768px) 384px, 224px", // tweak to your card widths
+  priority = false,
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
   ...rest
 }: {
   height?: number;
@@ -311,40 +316,29 @@ export const BlurImage = ({
   src: string;
   className?: string;
   alt?: string;
+  priority?: boolean;
   sizes?: string;
 }) => {
   const [loaded, setLoaded] = React.useState(false);
-  const imgRef = React.useRef<HTMLImageElement | null>(null);
-
-  // In case image is already cached when mounted
-  React.useEffect(() => {
-    const img = imgRef.current;
-    if (img && img.complete && img.naturalWidth > 0) {
-      setLoaded(true);
-    }
-  }, [src]);
-
-  // Strip props that aren't valid on <img> (e.g., "fill" coming from caller)
-  const { fill, ...safeRest } = rest as any;
 
   return (
-    <img
-      ref={imgRef}
+    <Image
       className={cn(
-        "h-full w-full object-cover transition duration-300",
-        loaded ? "blur-0" : "blur-sm",
+        "h-full w-full object-cover transition duration-700 ease-in-out",
+        loaded ? "blur-0 scale-100" : "blur-xl scale-110",
         className
       )}
+      onLoad={() => setLoaded(true)}
       src={src}
       width={width}
       height={height}
+      fill={!width && !height}
       alt={alt ?? "Image"}
-      loading="lazy"
+      priority={priority}
+      loading={priority ? undefined : "lazy"}
       decoding="async"
       sizes={sizes}
-      onLoad={() => setLoaded(true)}
-      onError={() => setLoaded(true)} // fail-safe to remove blur if load fails
-      {...safeRest}
+      {...rest}
     />
   );
 };

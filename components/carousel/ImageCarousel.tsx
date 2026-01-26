@@ -7,7 +7,7 @@ import { TAboutImage } from "@/types";
 
 export function ImageCarousel({ images }: { images: TAboutImage[] }) {
   const cards = images.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
+    <Card key={card.src} card={card} index={index} priority={index === 0} />
   ));
 
   return (
