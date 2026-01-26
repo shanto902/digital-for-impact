@@ -50,7 +50,7 @@ export function Works() {
       ),
     },
     {
-      title: "Digital Solutions Development",
+      title: "Web Development",
       value: "wtd",
       content: (
         <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black dark:text-white bg-gradient-to-br from-teal-100 to-teal-300 dark:from-teal-700 dark:to-teal-700">
@@ -91,7 +91,7 @@ export function Works() {
   ];
 
   return (
-    <section className="mt-20">
+    <section id="portfolio" className="mt-20">
       <h2 className="text-4xl font-bold text-center my-8">Our Portfolio</h2>
       <div className="h-screen px-2 md:px-0 md:h-[40rem] [perspective:1000px] relative b flex flex-col max-w-7xl mx-auto w-full  items-start justify-start mb-20">
         <Tabs tabs={tabs} />

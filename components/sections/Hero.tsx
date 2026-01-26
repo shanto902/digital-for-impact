@@ -6,7 +6,7 @@ import { heroText, homeVideos } from "@/data";
 
 const Hero = () => {
   return (
-    <main className="min-h-screen  w-full  h-full">
+    <main id="home" className="min-h-screen  w-full  h-full">
       <div className="absolute inset-0 max-w-[1920px] mx-auto overflow-hidden -z-10">
         <SkewedVideos strips={homeVideos} />
       </div>

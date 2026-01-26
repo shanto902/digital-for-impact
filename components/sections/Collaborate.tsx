@@ -57,6 +57,7 @@ export default function Collaborate() {
 
   return (
     <section
+    id="contact"
       className="
         relative
         bg-background transition-colors

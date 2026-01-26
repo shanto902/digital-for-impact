@@ -235,7 +235,7 @@ export const teamMembers: TTeamMember[] = [
   },
 ];
 
-export const teamTitle: string = "Meet our board members";
+export const teamTitle: string = "Meet our Team";
 export const teamDescription: string =
   "A diverse group of passionate professionals, each bringing unique skills and experiences to drive innovation and excellence in every project we undertake.";
 

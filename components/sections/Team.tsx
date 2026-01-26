@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Team() {
   return (
-    <section className="relative px-5 md:px-10 mb-20 bg-background transition-colors duration-500">
+    <section id="team" className="relative px-5 md:px-10 mb-20 bg-background transition-colors duration-500">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12">

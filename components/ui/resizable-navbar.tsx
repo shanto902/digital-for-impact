@@ -245,8 +245,8 @@ export const NavbarLogo = () => {
 
   return (
     <a
-      href="#"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black dark:text-white"
+      href="/#home"
+      className="relative z-90 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black dark:text-white"
       aria-label="Digital For Impact — Home"
     >
       <img
