@@ -136,7 +136,7 @@ export const clientCompanies: TClient[] = [
   {
     src: "/images/client-09.png",
     alt: "Anahata",
-    href: "#",
+    href: "https://anahatasamui.com/",
   },
   {
     src: "/images/client-10.png",
@@ -146,7 +146,7 @@ export const clientCompanies: TClient[] = [
   {
     src: "/images/client-11.png",
     alt: "Samui",
-    href: "#",
+    href: "https://samuifishingclubandresort.com/",
   },
   {
     src: "/images/client-12.jpg",

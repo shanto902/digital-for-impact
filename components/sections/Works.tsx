@@ -50,7 +50,7 @@ export function Works() {
       ),
     },
     {
-      title: "Web Development",
+      title: "Digital Solutions Development",
       value: "wtd",
       content: (
         <div className="w-full overflow-x-hidden overflow-y-auto relative h-full rounded-2xl p-5 md:p-10 text-xl md:text-4xl font-bold text-black dark:text-white bg-gradient-to-br from-teal-100 to-teal-300 dark:from-teal-700 dark:to-teal-700">
