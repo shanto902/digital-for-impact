@@ -57,7 +57,7 @@ export default function Collaborate() {
 
   return (
     <section
-    id="contact"
+      id="contact"
       className="
         relative
         bg-background transition-colors
@@ -96,7 +96,7 @@ export default function Collaborate() {
             </span>
 
             <h2 className="mt-4 text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight text-neutral-900 dark:text-white">
-              Tell us about your project
+              Let’s Build Digital Presence That Matters
             </h2>
 
             <p className="mt-3 max-w-xl text-sm sm:text-base text-neutral-600 dark:text-neutral-400">

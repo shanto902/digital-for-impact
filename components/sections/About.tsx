@@ -22,7 +22,7 @@ const About = () => {
 
         <div className="relative">
           <div className=" bg-background backdrop-blur supports-[backdrop-filter]:backdrop-blur-sm ">
-            <motion.div
+            <motion.h2
               className=" pb-2 flex flex-col items-center justify-start gap-4 text-center sm:mx-0 sm:mb-0 sm:flex-row"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ const About = () => {
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <LayoutTextFlip text={aboutTitle} words={aboutShuffleWords} />
-            </motion.div>
+            </motion.h2>
           </div>
           {/* sticky content */}
           <div className="pt-4">

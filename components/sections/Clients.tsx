@@ -5,7 +5,9 @@ import { TClient } from "@/types";
 const Clients = ({ clientCompanies }: { clientCompanies: TClient[] }) => {
   return (
     <section className="mt-35 mx-auto px-4">
-      <h2 className="text-4xl font-bold text-center my-8">Our Clients</h2>
+      <h2 className="text-4xl font-bold text-center my-8">
+        Industries & Use Cases We Support
+      </h2>
       <div
         style={{ height: "150px", position: "relative", overflow: "hidden" }}
       >

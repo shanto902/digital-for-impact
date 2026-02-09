@@ -13,6 +13,7 @@ const Hero = () => {
 
       <section className="absolute inset-0 flex items-center justify-center">
         <BlurText
+          as="h1"
           text={heroText}
           delay={150}
           animateBy="words"

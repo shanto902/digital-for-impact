@@ -19,9 +19,81 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Digital For Impact",
+  title: "Digital Solutions | Digital for Impact",
   description:
-    "At Digital for Impact, we specialize in crafting high-impact digital solutions for tourism, hospitality, social enterprises, and brands.",
+    "End-to-end digital solutions development for web, mobile, SaaS, automation, data intelligence and UI/UX. Serving APAC & Bangladesh-based teams.",
+  keywords: [
+    "Digital Solutions",
+    "Web Development",
+    "Mobile App Development",
+    "SaaS Development",
+    "Automation Solutions",
+    "Data Intelligence",
+    "UI UX Design",
+    "Software Development Company",
+    "Bangladesh",
+    "Thailand",
+    "APAC",
+    "Southeast Asia",
+    "Digital for Impact",
+  ],
+  openGraph: {
+    title: "Digital Services | Digital for Impact",
+    description:
+      "End-to-end digital solutions for web, mobile, apps, SaaS, automation, data intelligence and UI/UX—built for scale across APAC.",
+    images: [
+      {
+        url: "/og-image.jpg", // Assuming an image will be placed here or exists
+        width: 1200,
+        height: 630,
+        alt: "Digital for Impact",
+      },
+    ],
+    type: "website",
+  },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Digital for Impact",
+  url: "https://www.digitalforimpact.net/",
+  logo: "https://www.digitalforimpact.net/logo.png",
+  description:
+    "Digital for Impact provides end-to-end digital solutions including web development, mobile apps, SaaS platforms, automation, data intelligence, and UI/UX design across APAC.",
+  areaServed: [
+    { "@type": "Country", name: "Bangladesh" },
+    { "@type": "Country", name: "Thailand" },
+    { "@type": "Country", name: "Singapore" },
+    { "@type": "Country", name: "Malaysia" },
+    { "@type": "Country", name: "Indonesia" },
+    { "@type": "Country", name: "Pakistan" },
+  ],
+  sameAs: [],
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Digital Solutions Development",
+  provider: {
+    "@type": "Organization",
+    name: "Digital for Impact",
+    url: "https://www.digitalforimpact.net/",
+  },
+  serviceType: [
+    "Web Development",
+    "Mobile App Development",
+    "SaaS Development",
+    "Automation Solutions",
+    "Data Intelligence",
+    "UI UX Design",
+  ],
+  areaServed: "Asia-Pacific",
+  audience: {
+    "@type": "Audience",
+    audienceType: "Startups, Enterprises, NGOs, Impact Organizations",
+  },
 };
 
 export default function RootLayout({
@@ -31,6 +103,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+      </head>
       <Script id="gtm-script" strategy="beforeInteractive">
         {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

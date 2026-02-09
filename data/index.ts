@@ -28,18 +28,18 @@ export const navItems: TNavItem[] = [
 ];
 export const aboutDescriptionHtml = `
 <strong>We're Not a Digital Agency.</strong>
-<p>We're a boutique 360° creative and digital service provider that specializes in content, strategy, and web development. But what does that really mean?</p>
+<p>We're a boutique 360° creative and digital service provider that specializes in <strong>web & app development</strong>, strategy, and <strong>automation solutions</strong>. But what does that really mean?</p>
 <p>It means we don't just "do digital marketing." We get into the trenches with you, dig deep into your business goals, and figure out the smartest, most creative ways to get you where you need to be. We're the problem-solvers who see a challenge and get genuinely excited about finding a clever solution.</p>
 <p>Tired of working with agencies that feel like black boxes? We get it. We pride ourselves on being completely transparent and making sure you're in the loop every step of the way. We're a team that truly gets behind your vision because your win is our win.</p>
 <p>We’ve seen what works and what’s just a waste of time and money, and we’re here to help you skip the latter. We build impactful strategies, craft compelling visuals, and develop websites that don't just look pretty but actually perform.</p>
 
 <strong>What Makes Us Different? (Besides Our Sense of Humor)</strong>
 <p><em>A Brain Trust, Not a Bureaucracy:</em> We’re a lean, mean, results-driven machine. You don't get handed off to a junior team. You work directly with the experts who have the skills and experience to get the job done right.</p>
-<p><em>APAC Expertise, Global Standards:</em> We're registered in the US, based right here in Bangladesh, but our work has helped clients across the entire APAC region. We combine our deep regional market knowledge with world-class digital standards to deliver work that drives real growth and makes an impact.</p>
+<p><em>APAC Expertise, Global Standards:</em> We're registered in the US, based right here in <strong>Bangladesh</strong>, but as a premier <strong>software development company</strong>, our work has helped clients across the entire <strong>APAC</strong> region, including <strong>Thailand</strong>, <strong>Singapore</strong>, and <strong>Malaysia</strong>. We combine our deep regional market knowledge with world-class digital standards to deliver work that drives real growth and makes an impact.</p>
 <p><em>No-Nonsense Pricing:</em> We believe top-tier creative and digital services shouldn't break the bank. We offer industry-standard quality at rates that are reasonable and competitive, so you can focus on your business, not your budget.</p>
 
 <strong>Ready to Tell a Better Story?</strong>
-<p>Your business deserves more than just a marketing plan; it deserves a partner. If you're looking for a team that's as passionate about your success as you are, let's chat.</p>
+<p>Your business deserves more than just a marketing plan; it deserves a partner. If you're looking for a team that's as passionate about your success as you are, let's chat about your next <strong>SaaS development</strong> or <strong>automation project</strong> in <strong>Southeast Asia</strong>.</p>
 `;
 
 export const homeVideos: THomeVideo[] = [
@@ -60,7 +60,8 @@ export const homeVideos: THomeVideo[] = [
   },
 ];
 
-export const heroText: string = "Digital Disruption Delivered";
+export const heroText: string =
+  "Digital Solutions Development for Scalable Impact";
 
 export const aboutImages: TAboutImage[] = [
   {
@@ -176,7 +177,8 @@ export const services: TServiceItem[] = [
     accentColor: "#bffe72",
     gridSpan: "md:col-span-2 lg:col-span-8",
     minHeight: "min-h-[400px]",
-    imageClass: "absolute right-0 bottom-0 w-[50%] opacity-50 grayscale hover:grayscale-0 transition-all duration-500",
+    imageClass:
+      "absolute right-0 bottom-0 w-[50%] opacity-50 grayscale hover:grayscale-0 transition-all duration-500",
   },
   {
     id: "branding",
@@ -208,7 +210,8 @@ export const services: TServiceItem[] = [
     accentColor: "#72ffde",
     gridSpan: "md:col-span-2 lg:col-span-8",
     minHeight: "min-h-[400px]",
-    imageClass: "absolute right-0 bottom-0 w-[50%] opacity-50 grayscale hover:grayscale-0 transition-all duration-500",
+    imageClass:
+      "absolute right-0 bottom-0 w-[50%] opacity-50 grayscale hover:grayscale-0 transition-all duration-500",
   },
 ];
 
@@ -451,7 +454,7 @@ export const websitesData: TWebsiteTab[] = [
     longShot: "/images/wd-07.jpg",
     url: "https://www.pakadhaka.shop/",
   },
-   {
+  {
     id: "s8",
     title: "Haven Samui",
     poster: "/images/haven-samui.jpg",
